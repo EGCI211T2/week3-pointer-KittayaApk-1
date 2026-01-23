@@ -15,7 +15,6 @@ int main(int argc, char *argv[])
     pa = new int[n];
     int *start = pa;
 
-    // convert argv to int (manual, no atoi)
     for (i = 0; i < n; i++) {
         int value = 0;
         int j = 0;
