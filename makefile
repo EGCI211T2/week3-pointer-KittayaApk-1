@@ -4,7 +4,7 @@ compile: main.cpp
 	g++ main.cpp -o $(DEPS)
 
 run: $(DEPS)
-	./$(DEPS) $(var)
+     ./$(DEPS)  $(var)
 
 clean:
-	rm $(DEPS)
+	rm $(DEPS) 
