@@ -1,10 +1,11 @@
-DEPS = testcompile
 
-$(DEPS): main.cpp
+DEPS = test
+
+compile: main.cpp
 	g++ main.cpp -o $(DEPS)
 
-run: $(DEPS)
-	./$(DEPS)
+run: compile
+	echo $(var) | ./$(DEPS)
 
 clean:
 	rm -f $(DEPS)
