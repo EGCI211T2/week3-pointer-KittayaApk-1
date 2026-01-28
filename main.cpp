@@ -4,12 +4,13 @@
 using namespace std;
 
 int main(int argc, char *argv[])
-{ 
+{
     int n = argc - 1;
     int *pa = new int[n];
     int *start = pa;
+    int i, temp;
 
-    for (int i = 0; i < n; i++) {
+    for (i = 0; i < n; i++) {
         int value = 0;
         int j = 0;
         while (argv[i + 1][j] != '\0') {
@@ -20,21 +21,26 @@ int main(int argc, char *argv[])
         pa++;
     }
 
-    // reverse
+    pa = start;
+    for (i = 0; i < n; i++) {
+        cout << setw(3) << *pa;
+        pa++;
+    }
+    cout << endl;
+
     pa = start;
     int *pb = start + n - 1;
-    for (int i = 0; i < n / 2; i++) {
-        int temp = *pa;
+    for (i = 0; i < n / 2; i++) {
+        temp = *pa;
         *pa = *pb;
         *pb = temp;
         pa++;
         pb--;
     }
 
-  
     pa = start;
-    for (int i = 0; i < n; i++) {
-        cout << setw(3) << *pa;
+    for (i = 0; i < n; i++) {
+        cout << setw(3) << *pa << " ";
         pa++;
     }
 
