@@ -1,4 +1,4 @@
-DEPS = test 
+DEPS = test
 
 compile: main.cpp
 	g++ main.cpp -o $(DEPS)
