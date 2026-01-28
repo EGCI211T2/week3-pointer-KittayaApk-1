@@ -1,35 +1,62 @@
 #include <iostream>
 #include <iomanip>
+#define SIZE 10
 
 using namespace std;
 
-int main() {
-    int *pa, *pb, temp;
-    int n;
+int main(int argc,char *argv[]){
+  int *pa, *pb, i, temp;
+int a[SIZE] ={1,2,3,4,5,6,7,8,9,10}; 
+pa = &a[0]; //pa =a;
+cout<<"Original: ";
+for (i=0; i<SIZE-1; i++ ,pa++){
+   cout<<setw(3)<<*pa ;//<<endl;
+  //cout<<pa<<endl;
+}
+cout<<setw(3)<<*pa<<endl;
 
-    cin >> n;               
-    if (n <= 0) return 0;
+pa = &a[0];  
+pb = &a[SIZE-1];
+for (i=0; i<SIZE/2; i++)
+int main(int argc, char *argv[])
+{
+   temp = *pa;  
+   *pa = *pb;  
+   *pb = temp;
+   pa++;  pb--;
+}
+pa=&a[0];
+pb-=SIZE/2;
+cout<<"Reversed: ";
+for (i=0; i<SIZE-1; i++ ,pa++){
+   cout<<setw(3)<<*pa ;//<<endl;
+  //cout<<pa<<endl;
+}
+cout<<setw(3)<<*pa<<endl;
+    int n, i, temp;
+    int *pa, *pb;
+
+    // Show argc
+    cout << "argc is " << argc << endl;
+
+    cout << "How many numbers needed? ";
+    cin >> n;
 
     pa = new int[n];
-    int *start = pa;
 
-    for (int i = 0; i < n; i++) {
-        cin >> *pa;
-        pa++;
+    for (i = 0; i < n; i++) {
+        cout << "Input " << i + 1 << ": ";
+        cin >> pa[i];
     }
 
-    pa = start;
-    cout << "Original:";
-    for (int i = 0; i < n; i++) {
-        cout << setw(4) << *pa;
-        pa++;
+    cout << "Original: ";
+    for (i = 0; i < n; i++) {
+        cout << setw(3) << pa[i];
     }
     cout << endl;
 
-    pa = start;
-    pb = start + n - 1;
-
-    for (int i = 0; i < n / 2; i++) {
+    pb = pa + n - 1;
+    for (i = 0; i < n / 2; i++) {
         temp = *pa;
         *pa = *pb;
         *pb = temp;
@@ -37,14 +64,14 @@ int main() {
         pb--;
     }
 
-    pa = start;
-    cout << "Reversed:";
-    for (int i = 0; i < n; i++) {
-        cout << setw(4) << *pa;
-        pa++;
+    pa -= n / 2;
+
+    cout << "Reversed: ";
+    for (i = 0; i < n; i++) {
+        cout << setw(3) << pa[i];
     }
     cout << endl;
 
-    delete[] start;
+    delete[] pa;
     return 0;
 }
