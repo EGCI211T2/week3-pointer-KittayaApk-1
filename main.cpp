@@ -3,33 +3,25 @@
 
 using namespace std;
 
-int main(int argc, char *argv[])
-{
-    int *pa, *pb, temp, i;
+int main() {
+    int *pa, *pb, temp;
+    int n;
 
-    cout << "argc is " << argc << endl;
-
-    int n = argc - 1;
+    cin >> n;               
     if (n <= 0) return 0;
 
     pa = new int[n];
     int *start = pa;
 
-    for (i = 0; i < n; i++) {
-        int value = 0;
-        int j = 0;
-        while (argv[i + 1][j] != '\0') {
-            value = value * 10 + (argv[i + 1][j] - '0');
-            j++;
-        }
-        *pa = value;
+    for (int i = 0; i < n; i++) {
+        cin >> *pa;
         pa++;
     }
 
     pa = start;
-    cout << "Original: ";
-    for (i = 0; i < n; i++) {
-        cout << setw(3) << *pa;
+    cout << "Original:";
+    for (int i = 0; i < n; i++) {
+        cout << setw(4) << *pa;
         pa++;
     }
     cout << endl;
@@ -37,7 +29,7 @@ int main(int argc, char *argv[])
     pa = start;
     pb = start + n - 1;
 
-    for (i = 0; i < n / 2; i++) {
+    for (int i = 0; i < n / 2; i++) {
         temp = *pa;
         *pa = *pb;
         *pb = temp;
@@ -46,9 +38,9 @@ int main(int argc, char *argv[])
     }
 
     pa = start;
-    cout << "Reversed: ";
-    for (i = 0; i < n; i++) {
-        cout << setw(3) << *pa;
+    cout << "Reversed:";
+    for (int i = 0; i < n; i++) {
+        cout << setw(4) << *pa;
         pa++;
     }
     cout << endl;
